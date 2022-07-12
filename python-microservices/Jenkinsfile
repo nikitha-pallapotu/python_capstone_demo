@@ -26,12 +26,13 @@ pipeline {
 				    cd python-microservices/service1
                     docker build -t nikithap/service1:%BUILD_NUMBER% .	
                     '''	
-				}
+				
              withDockerRegistry(credentialsId: 'dockerhub') {
 			  bat docker push nikithap/service1:%BUILD_NUMBER%
-			 }				
-            }
+			 }
+			}
         }
+    }
 	  stage('pushing docker image for service2'){
         steps{
             script{
