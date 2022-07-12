@@ -1,1 +1,1 @@
-sonar-scanner -D"sonar.projectKey=capstone-python-project" -D"sonar.projectName=capstone-python-project" -D"sonar.projectVersion=1.0" -D"sonar.sources=service1/,service2/" -D"sonar.language=py" -D"sonar.host.url=http://localhost:9000/" -D"sonar.login=admin" -D"sonar.password=nikitha"
+C:\softwares\sonar-scanner-4.7.0.2747-windows\bin>sonar-scanner.bat -Dsonar.projectKey=capstone-python-project -Dsonar.sources=service1\app,service2\app -Dsonar.login=sqp_6aae4e68fc8e1b6f418aa78d22daf4af5ee094a7 -Dsonar.projectBaseDir=C:\capstone_project\python_capstone_demo\python-microservices
