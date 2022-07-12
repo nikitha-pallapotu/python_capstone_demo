@@ -6,8 +6,6 @@ pipeline {
             git branch: 'main',
                 credentialsId: 'Github',
                 url: 'https://github.com/nikitha-pallapotu/python_capstone_demo.git'
-
-            sh "ls -lat"
         }
 	}
 }
