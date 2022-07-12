@@ -18,8 +18,18 @@ pipeline {
 			   '''
            }
         }
-    }	
-  }
+    }
+      stage('pushing docker image'){
+        steps{
+            script{
+                bat '''
+				    cd python-microservices/service1
+                    docker build -t nikithap/service1 .	
+                    '''	
+				}	
+            }
+    }
+	
 }
 
 	
