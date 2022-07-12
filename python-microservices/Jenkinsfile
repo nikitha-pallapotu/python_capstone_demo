@@ -22,15 +22,14 @@ pipeline {
 	 stage('pushing docker image for service1'){
         steps{
             script{
+			    withDockerRegistry(credentialsId: 'dockerhub', url: "" ){
                 bat '''
 				    cd python-microservices/service1
                     docker build -t nikithap/service1:%BUILD_NUMBER% .	
+					docker push nikithap/service1:%BUILD_NUMBER%
                     '''	
+				}	
 			}	
-            withDockerRegistry(credentialsId: 'dockerhub', url: "" ) {
-			
-			    bat 'docker push nikithap/service1:%BUILD_NUMBER%'
-			}
 	    }
     }
     
@@ -44,7 +43,17 @@ pipeline {
                     '''	
 				}	
             }
-        }	
+        }
+      stage('deleteing local images'){
+        steps{
+            script{
+                bat '''
+                    docker rmi nikithap/service1:%BUILD_NUMBER%	
+                    docker rmi nikithap/service2:%BUILD_NUMBER%
+                    '''	
+				}	
+            }
+        }			
 	
     }
 }
