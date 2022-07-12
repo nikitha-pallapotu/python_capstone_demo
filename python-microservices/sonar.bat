@@ -1,0 +1,1 @@
+sonar-scanner -D"sonar.projectKey=capstone-python-project" -D"sonar.projectName=capstone-python-project" -D"sonar.projectVersion=1.0" -D"sonar.sources=service1/,service2/" -D"sonar.language=py" -D"sonar.host.url=http://localhost:9000/" -D"sonar.login=admin" -D"sonar.password=nikitha"
