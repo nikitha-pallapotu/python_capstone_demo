@@ -1,0 +1,13 @@
+pipeline {
+    agent any 
+	stages {
+     stage('git clone') {
+        steps {
+            git branch: 'main',
+                credentialsId: 'Github',
+                url: 'https://github.com/nikitha-pallapotu/python_capstone_demo.git'
+
+            sh "ls -lat"
+        }
+	}
+}	
