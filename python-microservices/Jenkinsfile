@@ -12,6 +12,7 @@ pipeline {
 	   steps{
 	       script{
 	          bat '''
+			    cd python-microservices
 		        call sonar.bat
 			   
 			   '''
