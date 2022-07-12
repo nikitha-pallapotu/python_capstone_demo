@@ -9,13 +9,15 @@ pipeline {
         }
 	}
 	 stage('sonar analysis') {
-	   script{
-	      bat '''
-		     sonar.bat
-			 '''
-}
-}
-	}
+	   steps{
+	       script{
+	          bat '''
+		        call sonar.bat
+			   '''
+           }
+        }
+    }	
+  }
 }
 
 	
