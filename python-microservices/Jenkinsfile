@@ -47,7 +47,7 @@ pipeline {
 	  stage('deploy to GKE cluster'){
         steps{
             script{
-			    withCredentials([file(credentialsId: 'capstoneproject', variable: 'GC_KEY')]) {
+			    withCredentials([file(credentialsId: 'capstoneprojectkey', variable: 'GC_KEY')]) {
 				bat '''
 				
                 gcloud auth activate-service-account --key-file=%GC_KEY%
