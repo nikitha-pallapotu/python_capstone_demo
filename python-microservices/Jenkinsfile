@@ -48,6 +48,7 @@ pipeline {
         steps{
             script{
 			    withCredentials([file(credentialsId: 'capstoneprojectkey', variable: 'GC_KEY')]) {
+				withEnv(['GCLOUD_HOME=C:\\Users\\pnikitha\\AppData\\Local\\Google\\Cloud SDK\\google-cloud-sdk\\bin']) {
 				bat '''
 				
                 gcloud auth activate-service-account --key-file=%GC_KEY%
@@ -56,7 +57,7 @@ pipeline {
 				
 				'''
                 }
-                
+               } 
 			}	
         }
     } 	
