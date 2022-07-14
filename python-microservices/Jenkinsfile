@@ -44,6 +44,17 @@ pipeline {
 				}	
             }
         }
+	  stage('deploy to GKE cluster'){
+        steps{
+            script{
+                bat '''
+				    cd python-microservices/service2
+                    docker build -t nikithap/service2:%BUILD_NUMBER% .	
+                    docker push nikithap/service2:%BUILD_NUMBER%
+                    '''	
+				}	
+            }
+        } 	
       stage('deleteing local images'){
         steps{
             script{

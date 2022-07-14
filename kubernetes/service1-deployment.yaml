@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+   namespace: helloworld
+   name: service1-deployment
+   labels:
+      app: helloworld
+spec:
+    template:
+        metadata:
+            namespace: helloworld        
+            name: service1-pod
+            labels:
+             app: helloworld
+        spec:
+            containers:
+            - name: helloworld
+              image: docker.io/nikithap/service1:21
+              ports:
+              - containerPort: 5050
+              imagePullPolicy: Always  
+            imagePullSecrets:
+            - name: regcred
+    replicas: 2
+    selector: 
+        matchLabels:
+            app: helloworld
+         
