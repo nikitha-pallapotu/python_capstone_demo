@@ -47,14 +47,19 @@ pipeline {
 	  stage('deploy to GKE cluster'){
         steps{
             script{
-                bat '''
-				    cd python-microservices/service2
-                    docker build -t nikithap/service2:%BUILD_NUMBER% .	
-                    docker push nikithap/service2:%BUILD_NUMBER%
-                    '''	
-				}	
-            }
-        } 	
+			    withCredentials([file(credentialsId: 'capstoneproject', variable: 'GC_KEY')]) {
+				bat '''
+				
+                gcloud auth activate-service-account --key-file=%GC_KEY%
+                gcloud container clusters get-credentials capstonecluster --zone us-central1-c --project capstoneproject-356208
+				kubectl apply -f ./kubernetes/service1.deployment.yaml
+				
+				'''
+                }
+                
+			}	
+        }
+    } 	
       stage('deleteing local images'){
         steps{
             script{
