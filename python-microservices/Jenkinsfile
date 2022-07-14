@@ -59,7 +59,7 @@ pipeline {
 			}	
         }
     } 
-      stage('deploy to GKE cluster'){
+      stage('connect to GKE cluster'){
         steps{
             script{
 			    
@@ -67,13 +67,23 @@ pipeline {
 				bat '''
                 
                 gcloud container clusters get-credentials capstonecluster --zone us-central1-c --project capstoneproject-356208
-				kubectl apply -f ./kubernetes/service1.deployment.yaml
 				
 				'''
                } 
 			}	
         }
-    } 		
+    } 	
+      stage('deploy to GKE cluster'){
+        steps{
+            script{
+				bat '''
+                
+				kubectl apply -f ./kubernetes/service1.deployment.yaml
+				
+				''' 
+			}	
+        }
+    } 			
       stage('deleteing local images'){
         steps{
             script{
