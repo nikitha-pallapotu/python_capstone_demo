@@ -79,8 +79,8 @@ pipeline {
 				bat '''
                 
 				kubectl apply -f ./kubernetes
-				kubectl set image deployments/service1-deployment welcome=nikithap/service1:%BUILD_NUMBER%
-				kubectl set image deployments/service2-deployment welcome=nikithap/service2:%BUILD_NUMBER%
+				kubectl set image deployments/service1-deployment helloworld=nikithap/service1:%BUILD_NUMBER% -n helloworld
+				kubectl set image deployments/service2-deployment welcome=nikithap/service2:%BUILD_NUMBER% -n welcome
 				
 				''' 
 			}	

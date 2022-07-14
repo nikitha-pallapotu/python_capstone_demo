@@ -2,5 +2,5 @@ projectKey=capstone-python-project
 serverUrl=http://localhost:9000
 serverVersion=9.5.0.56709
 dashboardUrl=http://localhost:9000/dashboard?id=capstone-python-project
-ceTaskId=AYH79Ozv7OKBwbjOq9xQ
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYH79Ozv7OKBwbjOq9xQ
+ceTaskId=AYH8GRLd7OKBwbjOq9xR
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYH8GRLd7OKBwbjOq9xR
