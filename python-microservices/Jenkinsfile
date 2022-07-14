@@ -78,7 +78,7 @@ pipeline {
             script{
 				bat '''
                 
-				kubectl apply -f ./kubernetes/service1-deployment.yaml
+				kubectl apply -f ./kubernetes
 				
 				''' 
 			}	
