@@ -32,7 +32,7 @@ def test():
         if request.form['submit_button'] == 'Reset':
             return redirect(url_for("index"))
         elif request.form['submit_button'] == 'Get Message':
-            data = requests.get('http://localhost:31000').json()
+            data = requests.get('http://service2-pod:5051').json()
             flash(str(data), "green")
             return redirect(url_for('test'))
         else:
